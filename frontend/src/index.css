@@ -11,7 +11,11 @@ body {
   overflow-x: hidden !important;
 }
 
+/* .container-fluid {
+  max-width: 120rem;
+} */
 .form-image {
+  background: url(../public/form-image.png);
   background-position: center;
 }
 .react-international-phone-input {
@@ -42,7 +46,24 @@ body {
   background: linear-gradient(180deg, #44bcff 10%, #44b0ff 100%);
   filter: blur(30px);
 }
+.linear-text {
+  background: linear-gradient(90deg, #d9b227 40%, #fd4141 100%);
+  filter: blur(30px);
+}
 .linear-pink {
   background: linear-gradient(90deg, #ff44ec 40%, #ff675e 100%);
   filter: blur(30px);
+}
+
+/* card */
+.card-cover {
+  box-shadow: 0 0 30px rgb(0, 0, 0, 0.15);
+  /* text-align: center; */
+  overflow: hidden;
+  border-radius: 11px;
+  transition: all 0.3s;
+}
+.card-cover:hover {
+  transform: translateY(-1.4rem);
+  box-shadow: 0 0 30px rgb(0, 0, 0, 0.1);
 }
