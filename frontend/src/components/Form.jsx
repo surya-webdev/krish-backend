@@ -1,0 +1,199 @@
+import { useState } from "react";
+import Button from "./Button";
+import formImage from '../../public/form-image.png';
+
+function Form() {
+
+  const [formState, setFormState] = useState({
+    full_name: '',
+    phone: '',
+    email: '',
+    amount: 100,
+    currency: 'INR',
+    message: '',
+  });
+
+  const currencies = ['INR', 'USD', 'EUR', 'GBP', 'JPY', 'AUD'];
+
+  const handlePhone = (e) => {
+    const value = e.target.value;
+    if (/^\d*$/.test(value)) {
+      setFormState((pre)=> ({...pre, phone: value}))
+    }
+  };
+
+  const handlePayment = async (event) => {
+    event.preventDefault();
+
+    try {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_HOST_URL}/order`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json"
+            },
+            body: JSON.stringify({...formState})
+        });
+
+        const data = await res.json();
+        handlePaymentVerify(data)
+    } catch (error) {
+        console.log(error);
+    }
+  }
+
+// handlePaymentVerify Function
+const handlePaymentVerify = async (data) => {
+  const options = {
+      key: import.meta.env.RAZORPAY_KEY_ID,
+      amount: data.order.amount,
+      currency: data.order.currency,
+      name: "Krish Foundation",
+      description: "Test Mode", // change 
+      order_id: data.order.id,
+      handler: async (response) => {
+          console.log("response", response)
+          try {
+              const res = await fetch(`${import.meta.env.VITE_BACKEND_HOST_URL}/verify`, {
+                  method: 'POST',
+                  headers: {
+                      'content-type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                      razorpay_order_id: response.razorpay_order_id,
+                      razorpay_payment_id: response.razorpay_payment_id,
+                      razorpay_signature: response.razorpay_signature,
+                  })
+              })
+
+              const verifyData = await res.json();
+
+              if (verifyData.success) {
+                setFormState({
+                  full_name: '',
+                  phone: '',
+                  email: '',
+                  amount: 100,
+                  currency: 'INR',
+                  message: '',
+                })
+              }
+          } catch (error) {
+              console.log(error);
+          }
+      },
+      theme: {
+        color: "#5f63b8" // change theme color
+      }
+  };
+  const rzp1 = new window.Razorpay(options);
+  rzp1.open();
+}
+
+  return (
+    <section className="container mx-auto my-[6rem]">
+      <div className="grid grid-cols-1 items-center justify-center gap-8 md:grid-cols-2">
+        <div className='form-image block w-full h-full' style={{backgroundImage: `url(${formImage})`}}></div>
+
+        <form onSubmit={handlePayment}
+          className="text-syne mx-2 flex flex-col gap-4 text-lg md:mx-6 md:text-xl"
+        >
+          <label className="" htmlFor="full_name">Name<span className="text-[red]">*</span></label>
+          <input
+            id="full_name"
+            name="full_name"
+            type="text"
+            className="rounded-md border-2 border-[#E1E5EA] px-4 py-1"
+            placeholder="John Don"
+            value={formState.full_name}
+            onChange={(e)=>setFormState((pre)=> ({...pre, full_name: e.target.value}))}
+            required
+
+          />
+          {/* <span className="text-red-600 text-sm">{error.full_name}</span> */}
+
+          <label htmlFor="phone">
+            Phone<span className="text-[red]">*</span>
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            className="rounded-md border-2 border-[#E1E5EA] px-4 py-1"
+            value={formState.phone}
+            onChange={handlePhone}
+            placeholder="9000000000"
+            pattern="^\d{10,}$"
+            required
+          />
+          {/* <span className="text-red-600 text-sm">{error.phone}</span> */}
+
+          <label htmlFor="email">Email ID<span className="text-[red]">*</span></label>
+          <input
+            id="email"
+            placeholder="example123@gmail.com"
+            type="email"
+            className="rounded-md border-2 border-[#E1E5EA] px-4 py-1"
+            value={formState.email}
+            onChange={(e)=>setFormState((pre)=> ({...pre, email: e.target.value}))}
+            required
+          />
+          {/* <span className="text-red-600 text-sm">{error.email}</span> */}
+
+          <div className=" space-y-3 ">
+            <div className="flex gap-4 flex-col">
+              <label htmlFor="amount">Amount<span className="text-[red]">*</span></label>
+              <div className="relative">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  value={formState.amount}
+                  onChange={(e)=>setFormState((pre)=> ({...pre, amount: e.target.value}))}
+                  className="px-4 py-1 rounded-md border-2 pe-20 block w-full border-[#E1E5EA] shadow-sm rounded-lg focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                  placeholder="0.0"
+                  required
+                />
+                <div className="absolute inset-y-0 end-0 flex items-center text-gray-500 pe-px">
+                  <label htmlFor="hs-inline-leading-select-currency" className="sr-only">
+                    Currency
+                  </label>
+                  <select
+                    id="currency"
+                    name="currency"
+                    value={formState.currency}
+                    className="px-2 py-1 block w-full border-transparent rounded-md"
+                    onChange={(e)=>setFormState((pre) => ({...pre, currency: e.target.value }))}
+                  >
+                    {currencies.map((currency) => (
+                      <option key={currency} value={currency}>
+                        {currency}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* <span className="text-red-600 text-sm">{error.amount}</span> */}
+
+          <label htmlFor="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Type your message..."
+            rows="4"
+            cols="50"
+            type="text"
+            value={formState.message}
+            className="rounded-md border-2 border-[#E1E5EA] px-4 py-1"
+            onChange={(e)=>setFormState((pre)=> ({...pre, message: e.target.value}))}
+          />
+
+          <Button />
+        </form>
+      </div>
+    </section>
+  );
+}
+
+export default Form;

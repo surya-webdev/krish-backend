@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Syne", sans-serif;
+  font-weight: 400;
+  line-height: normal;
+  overflow-x: hidden !important;
+}
+
+.form-image {
+  background-position: center;
+}
+.react-international-phone-input {
+  font-style: "Syne" !important;
+  font-size: 1.5rem !important;
+  width: 100% !important;
+  border: none !important;
+}
+.react-international-phone-country-selector-button {
+  border: none !important;
+}
+.blue__gradient {
+  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
+  filter: blur(123px);
+}
+
+.pink__gradient {
+  background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
+  filter: blur(900px);
+}
+
+.white__gradient {
+  background: rgba(255, 255, 255, 0.6);
+  filter: blur(750px);
+}
+
+.linearss {
+  background: linear-gradient(180deg, #44bcff 10%, #44b0ff 100%);
+  filter: blur(30px);
+}
+.linear-pink {
+  background: linear-gradient(90deg, #ff44ec 40%, #ff675e 100%);
+  filter: blur(30px);
+}
