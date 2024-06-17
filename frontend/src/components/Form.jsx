@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Button from "./Button";
-import formImage from "../../public/form-image.png";
 
 function Form() {
   const [formState, setFormState] = useState({
@@ -96,11 +95,30 @@ function Form() {
 
   return (
     <section className="container mx-auto my-[6rem]">
+      <div className="mx-2 lg:mx-10">
+        <h1 className="block py-8 text-[2.4rem] font-semibold capitalize md:text-[3rem]">
+          Donate Now SAVE lives
+          <span className="img-z block -translate-y-3">
+            <img className="" src="./hero-line.svg" alt="line" />
+          </span>
+        </h1>
+      </div>
       <div className="grid grid-cols-1 items-center justify-center gap-8 md:grid-cols-2">
-        <div
-          className="form-image block h-full w-full"
-          style={{ backgroundImage: `url(${formImage})` }}
-        ></div>
+        <div className="form-image background-image:url(./form-text.png) relative block h-[30rem] w-full md:h-full">
+          <div className="absolute bottom-[5rem] mx-10 text-slate-50">
+            <span className="block text-3xl font-semibold">
+              Make a Donation: Support Our Cause
+            </span>
+            <span className="text-[1rem] leading-[1.4rem]">
+              Your generous donation helps us continue our vital work at Krish
+              Foundation. Every contribution, no matter the size, makes a
+              significant impact on the lives of those in need. Please fill out
+              the form below to make a secure donation and support our mission
+              to provide education, healthcare, and community support to
+              underprivileged communities.
+            </span>
+          </div>
+        </div>
 
         <form
           onSubmit={handlePayment}

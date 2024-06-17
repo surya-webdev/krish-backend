@@ -59,11 +59,33 @@ body {
 .card-cover {
   box-shadow: 0 0 30px rgb(0, 0, 0, 0.15);
   /* text-align: center; */
-  overflow: hidden;
+  /* overflow: visible !important; */
   border-radius: 11px;
   transition: all 0.3s;
 }
 .card-cover:hover {
   transform: translateY(-1.4rem);
   box-shadow: 0 0 30px rgb(0, 0, 0, 0.1);
+}
+.card-covers {
+  box-shadow: 0 0 30px rgb(0, 0, 0, 0.15);
+  /* text-align: center; */
+  /* overflow: visible !important; */
+  border-radius: 11px;
+  transition: all 0.3s;
+}
+.card-covers:hover {
+  box-shadow: 0 0 30px rgb(0, 0, 0, 0.1);
+}
+
+/* zindex */
+.h1-z {
+  z-index: -100 !important;
+}
+.img-z {
+  z-index: 111 !important;
+}
+/*  */
+.swiper {
+  /* overflow: hidden; */
 }
