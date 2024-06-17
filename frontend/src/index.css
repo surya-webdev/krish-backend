@@ -15,7 +15,7 @@ body {
   max-width: 120rem;
 } */
 .form-image {
-  background: url(../public/form-image.png);
+  background: url(./form-image.png);
   background-position: center;
 }
 .react-international-phone-input {

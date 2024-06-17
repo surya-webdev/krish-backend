@@ -121,6 +121,7 @@ function Form() {
         </div>
 
         <form
+          id="form"
           onSubmit={handlePayment}
           className="text-syne mx-2 flex flex-col gap-4 text-lg md:mx-6 md:text-xl"
         >

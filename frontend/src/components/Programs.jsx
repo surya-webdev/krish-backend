@@ -1,14 +1,18 @@
+import trigger from "../../helper/trigger";
 import Button from "./Button";
 
 function Programs() {
   return (
-    <section className="container my-[2rem] cursor-pointer p-4 sm:mx-auto">
+    <section
+      id="program"
+      className="container my-[2rem] cursor-pointer p-4 sm:mx-auto"
+    >
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         <div className="card-cover flex flex-col gap-3">
           <img className="rounded-lg" src="./thumb.png" alt="childrens" />
           <div className="flex h-full w-full flex-col justify-evenly gap-4 p-6 lg:p-10">
             <div>
-              <h2 className="w-fit rounded-lg bg-green-400 px-2 py-2 text-2xl font-semibold">
+              <h2 className="w-fit rounded-lg bg-[#319bff] px-2 py-2 text-2xl font-semibold">
                 Child Assistance
               </h2>
             </div>
@@ -22,7 +26,7 @@ function Programs() {
               children with the tools they need to build a brighter future. Your
               support can transform lives.
             </p>
-            <Button />
+            <Button href="#form" onClick={(e) => trigger(e)} />
           </div>
         </div>
         {/* 2 */}
@@ -34,7 +38,7 @@ function Programs() {
           />
           <div className="flex h-full w-full flex-col justify-evenly gap-4 p-6">
             <div>
-              <h2 className="w-fit rounded-lg bg-red-400 px-2 py-2 text-2xl font-semibold">
+              <h2 className="w-fit rounded-lg bg-[#d3f985] px-2 py-2 text-2xl font-semibold">
                 Hospitality for Everyone
               </h2>
             </div>
@@ -48,7 +52,7 @@ function Programs() {
               to help these individuals live with dignity and comfort. Join us
               in making a positive impact on their lives.
             </p>
-            <Button />
+            <Button href="#form" onClick={(e) => trigger(e)} />
           </div>
         </div>
         {/* 3 */}
@@ -60,7 +64,7 @@ function Programs() {
           />
           <div className="flex h-full w-full flex-col justify-evenly gap-3 p-6">
             <div>
-              <h2 className="w-fit rounded-lg bg-blue-400 px-2 py-2 text-2xl font-semibold">
+              <h2 className="w-fit rounded-lg bg-[#fcbedc] px-2 py-2 text-2xl font-semibold">
                 Community Assistance
               </h2>
             </div>
@@ -73,7 +77,11 @@ function Programs() {
               create lasting change.
             </p>
 
-            <Button className="justify-self-end" />
+            <Button
+              href="#form"
+              onClick={(e) => trigger(e)}
+              className="justify-self-end"
+            />
           </div>
         </div>
 
