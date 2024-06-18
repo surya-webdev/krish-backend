@@ -1,6 +1,6 @@
 function Transparency() {
   return (
-    <section className="container my-[2rem] px-4 sm:mx-auto">
+    <section className="section container my-[2rem] px-4 sm:mx-auto">
       <div className="grid grid-cols-1 items-center justify-center gap-12 md:grid-cols-2">
         <div className="h1-z">
           <h1 className="block py-8 text-[2.4rem] font-semibold capitalize md:text-[3rem]">

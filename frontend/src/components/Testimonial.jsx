@@ -21,7 +21,7 @@ function Testimonial() {
 
   return (
     <>
-      <section className="h-full w-full cursor-pointer lg:px-2">
+      <section className="section h-full w-full cursor-pointer lg:px-2">
         <div className="mx-10">
           <h1 className="block py-2 text-[2.4rem] font-semibold capitalize md:text-[3rem]">
             Testimonial

@@ -104,7 +104,7 @@ function Form() {
         </h1>
       </div>
       <div className="grid grid-cols-1 items-center justify-center gap-8 md:grid-cols-2">
-        <div className="form-image background-image:url(./form-text.png) relative block h-[30rem] w-full md:h-full">
+        <div className="form-image relative block h-[30rem] w-full md:h-full">
           <div className="absolute bottom-[5rem] mx-10 text-slate-50">
             <span className="block text-3xl font-semibold">
               Make a Donation: Support Our Cause
@@ -187,7 +187,7 @@ function Form() {
                   onChange={(e) =>
                     setFormState((pre) => ({ ...pre, amount: e.target.value }))
                   }
-                  className="block w-full rounded-lg rounded-md border-2 border-[#E1E5EA] px-4 py-1 pe-20 shadow-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
+                  className="block w-full rounded-lg border-2 border-[#E1E5EA] px-4 py-1 pe-20 shadow-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
                   placeholder="0.0"
                   required
                 />

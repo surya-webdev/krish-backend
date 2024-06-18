@@ -15,7 +15,7 @@ body {
   max-width: 120rem;
 } */
 .form-image {
-  background: url(./form-image.png);
+  background: url(../public/form-image.png);
   background-position: center;
 }
 .react-international-phone-input {
@@ -88,4 +88,14 @@ body {
 /*  */
 .swiper {
   /* overflow: hidden; */
+}
+.section {
+  transition:
+    transform 1s,
+    opacity 1s;
+}
+
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
 }

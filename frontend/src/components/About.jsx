@@ -1,17 +1,19 @@
-// import { useGSAP } from "@gsap/react";
-// import gsap from "gsap";
+import { useEffect } from "react";
 
 function About() {
-  // const t1 = gsap.timeline({
-  //   defaults: { duration: 0.75, ease: "power2.out" },
-  // });
+  // console.log(section.target);
 
-  // t1.fromTo(".about-image", { x: "-100%" }, { x: "0" });
-  // useGSAP(() => {});
+  // useEffect(() => {
+
+  // }, [section]);
+
   return (
-    <section id="about" className="container my-[9rem] px-4 sm:mx-auto ">
+    <section
+      id="about"
+      className={`${"section"} container my-[9rem] px-4 sm:mx-auto`}
+    >
       <div className="grid grid-cols-1 items-center justify-center gap-12 md:grid-cols-2">
-        <div className="about-image">
+        <div>
           <img className="rounded-xl" src="./about-children.jpg" alt="about" />
         </div>
         <div className="h1-z">

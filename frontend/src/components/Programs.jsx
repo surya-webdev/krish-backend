@@ -5,7 +5,7 @@ function Programs() {
   return (
     <section
       id="program"
-      className="container my-[2rem] cursor-pointer p-4 sm:mx-auto"
+      className="section container my-[2rem] cursor-pointer p-4 sm:mx-auto"
     >
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         <div className="card-cover flex flex-col gap-3">

@@ -8,7 +8,7 @@ import { MdEmail } from "react-icons/md";
 function Footer() {
   const list = "flex gap-2 text-lg";
   return (
-    <footer className="overflow-hidden bg-black px-5 py-10 text-white">
+    <footer className="section overflow-hidden bg-black px-5 py-10 text-white">
       <div className="conatiner mx-auto">
         <div className="grid grid-cols-1 items-center justify-center gap-0 sm:grid-cols-2">
           <div className="flex flex-col items-center justify-center">
