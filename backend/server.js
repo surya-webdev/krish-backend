@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
+
 const Razorpay = require("razorpay");
+
 const crypto = require("crypto");
 const path = require("path");
 const dotenv = require("dotenv");
@@ -11,6 +13,7 @@ const port = 4000;
 
 // middleware
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
@@ -36,22 +39,18 @@ app.post("/order", async (req, res) => {
       };
 
       if (!allowedCurrencies.includes(currency)) {
-        return res
-          .status(401)
-          .json({
-            success: false,
-            message: `Currency ${currency} is not supported.`,
-          });
+        return res.status(401).json({
+          success: false,
+          message: `Currency ${currency} is not supported.`,
+        });
       } else {
         if (amount * 100 < minAmounts[currency]) {
-          return res
-            .status(401)
-            .json({
-              success: false,
-              message: `Minimum amount for ${currency} is ${
-                minAmounts[currency] / 100
-              }`,
-            });
+          return res.status(401).json({
+            success: false,
+            message: `Minimum amount for ${currency} is ${
+              minAmounts[currency] / 100
+            }`,
+          });
         } else {
           const razorpay = new Razorpay({
             key_id: process.env.RAZORPAY_KEY_ID,

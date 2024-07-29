@@ -58,7 +58,7 @@ function Hero() {
         </div>
       </section>
       <div className="fixed bottom-6 right-2 z-[10000] h-[4rem] w-[4rem]">
-        <a href="#">
+        <a href="https://wa.me/918148156179" target="_blank">
           <img src="./social.png" alt="contact" />
         </a>
       </div>

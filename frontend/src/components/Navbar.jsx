@@ -5,7 +5,9 @@ import trigger from "../../helper/trigger";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(true);
+
   // const navAll = document.querySelectorAll(".nav1");
+
   // navAll.forEach(function (link) {
   //   link.addEventListener("click", function (e) {
   //     e.preventDefault();
@@ -29,7 +31,7 @@ function Navbar() {
             <a href="#program">Program</a>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <a href="#form">Contact</a>
           </li>
         </ul>
         <div>
@@ -61,7 +63,7 @@ function Navbar() {
                   <a href="#program">Program</a>
                 </li>
                 <li>
-                  <a href="#">Contact</a>
+                  <a href="#form">Contact</a>
                 </li>
                 <li>
                   <button

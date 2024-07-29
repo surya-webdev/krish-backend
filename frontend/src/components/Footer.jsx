@@ -44,14 +44,15 @@ function Footer() {
                   <FaLocationDot />
                 </span>
                 <span className="text-slate-50">
-                  No.6, Dhanammal street, Spurtank road, chetpet Chennai 600-031
+                  No. 144, Kailash Colony, Anna nagar west (Near Bus Depot),
+                  Chennai, 600040.
                 </span>
               </li>
               <li className={list}>
                 <span className="translate-y-1">
                   <FaPhone />
                 </span>
-                <span>+91 806 916 9691</span>
+                <span>+91 8148156179</span>
               </li>
               <li className={list}>
                 <span className="translate-y-1">
