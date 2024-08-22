@@ -10,6 +10,8 @@ import Transparency from "./components/Transparency";
 import Footer from "./components/Footer";
 
 import { useEffect } from "react";
+import Terms from "./components/Terms";
+import Refund from "./components/Refund";
 
 function App() {
   //
@@ -46,6 +48,8 @@ function App() {
       <Programs />
       <Testimonial />
       <Transparency />
+      <Terms />
+      <Refund />
       <Form />
       <Footer />
     </>

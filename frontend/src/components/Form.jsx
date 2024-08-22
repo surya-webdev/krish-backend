@@ -37,6 +37,7 @@ function Form() {
 
       const data = await res.json();
       handlePaymentVerify(data);
+      //
     } catch (error) {
       console.log(error);
     }
